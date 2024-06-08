@@ -4,7 +4,7 @@ import fs from "fs";
 import afs from "fs/promises";
 import download from "download";
 import * as tar from "tar";
-
+import { exec } from "child_process";
 import sha256 from "sha256-file";
 
 const cliVersion = "0.1.3";
@@ -32,6 +32,19 @@ export function elgatoLightCLIDirectory(): string {
 
 export function elgatoCLIFilePath(): string {
   return path.join(elgatoLightCLIDirectory(), "elgato-light-cli");
+}
+
+export async function execute(command: string) {
+  const cliPath = await ensureCLI();
+
+  exec(`"${cliPath}" ${command}`, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    console.error(`stderr: ${stderr}`);
+  });
 }
 
 export async function ensureCLI() {
