@@ -1,5 +1,5 @@
 import { showHUD } from "@raycast/api";
-import { getIPAddress, openPreferences } from "./lib/utils";
+import { getIPAddress, getBrightnessChangeAmount, openPreferences } from "./lib/utils";
 import { execute } from "./lib/cli";
 
 export default async function Main() {
@@ -9,7 +9,8 @@ export default async function Main() {
     return openPreferences();
   } else {
     try {
-      await execute(`brightness --ip-address ${ipAddress} -- -5`);
+      const brightnessChangeAmount = getBrightnessChangeAmount();
+      await execute(`brightness --ip-address ${ipAddress} -- -${brightnessChangeAmount}`);
       await showHUD("Light brightness decreased");
     } catch (error) {
       console.log(error);

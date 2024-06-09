@@ -18,6 +18,16 @@
       "title": "IP Address",
       "description": "The IP address of the Elgato light.",
       "placeholder": "192.168.0.25"
+    },
+    {
+      "name": "brightnessChangeAmount",
+      "type": "textfield",
+      "required": false,
+      "key": "brightnessChangeAmount",
+      "title": "Brightness Change Amount",
+      "description": "The amount to increment/decrement brightness by. Between 1 and 100",
+      "default": "5",
+      "placeholder": "5"
     }
   ],
   "commands": [

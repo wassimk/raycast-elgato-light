@@ -3,11 +3,17 @@ import { ActionPanel, Action, Detail, openExtensionPreferences } from "@raycast/
 
 type Preferences = {
   ipAddress: string;
+  brightnessChangeAmount: number;
 };
 
 export function getIPAddress() {
   const { ipAddress } = getPreferenceValues<Preferences>();
   return ipAddress;
+}
+
+export function getBrightnessChangeAmount() {
+  const { brightnessChangeAmount } = getPreferenceValues<Preferences>();
+  return brightnessChangeAmount;
 }
 
 export function openPreferences() {
