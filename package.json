@@ -90,6 +90,12 @@
         }
       ],
       "mode": "no-view"
+    },
+    {
+      "name": "preferences",
+      "title": "Preferences",
+      "description": "Set the preferences for the Elgato light controller",
+      "mode": "no-view"
     }
   ],
   "tools": [],
