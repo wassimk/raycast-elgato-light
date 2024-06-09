@@ -7,11 +7,11 @@ import * as tar from "tar";
 import { exec } from "child_process";
 import sha256 from "sha256-file";
 
-const cliVersion = "0.2.1";
+const cliVersion = "0.2.2";
 const cliFileInfo = {
   arch: "aarch64",
   pkg: "elgato-light-Darwin-aarch64.tar.gz",
-  sha256: "17964b74f00f2dc8784fa39bbe1859846c71180c289971cd8ada3f395406627c",
+  sha256: "20899f0ede797c6d13893b792b705454b896085f4188bc816f655a97bc2c09e1",
 };
 
 async function sha256FileHash(filename: string): Promise<string | null> {
