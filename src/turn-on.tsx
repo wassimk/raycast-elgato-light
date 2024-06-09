@@ -1,5 +1,5 @@
 import { showHUD } from "@raycast/api";
-import { getIPAddress, openPreferences } from "./lib/utils";
+import { getIPAddress, defaultTemperature, defaultBrightness, openPreferences } from "./lib/utils";
 import { execute } from "./lib/cli";
 
 export default async function Main() {
@@ -9,7 +9,9 @@ export default async function Main() {
     return openPreferences();
   } else {
     try {
-      await execute(`on --ip-address ${ipAddress}`);
+      await execute(
+        `on --ip-address ${ipAddress} --temperature ${defaultTemperature()} --brightness ${defaultBrightness()}`,
+      );
       await showHUD("Light turned on");
     } catch (error) {
       console.log(error);

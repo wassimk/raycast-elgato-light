@@ -28,6 +28,26 @@
       "description": "The amount to increment/decrement brightness by. Between 1 and 100",
       "default": "5",
       "placeholder": "5"
+    },
+    {
+      "name": "defaultBrightness",
+      "type": "textfield",
+      "required": false,
+      "key": "defaultBrightness",
+      "title": "Default Brightness",
+      "description": "The defalt brightness to set the light to. Between 1 and 100",
+      "default": "10",
+      "placeholder": "10"
+    },
+    {
+      "name": "defaultTemperature",
+      "type": "textfield",
+      "required": false,
+      "key": "defaultTemperature",
+      "title": "Default Temperature",
+      "description": "The defalt temperature to set the light to. Between 2900 and 7000",
+      "default": "3000",
+      "placeholder": "3000"
     }
   ],
   "commands": [

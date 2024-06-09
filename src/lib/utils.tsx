@@ -4,6 +4,8 @@ import { ActionPanel, Action, Detail, openExtensionPreferences } from "@raycast/
 type Preferences = {
   ipAddress: string;
   brightnessChangeAmount: number;
+  defaultTemperature: number;
+  defaultBrightness: number;
 };
 
 export function getIPAddress() {
@@ -11,9 +13,19 @@ export function getIPAddress() {
   return ipAddress;
 }
 
-export function getBrightnessChangeAmount() {
+export function brightnessChangeAmount() {
   const { brightnessChangeAmount } = getPreferenceValues<Preferences>();
-  return brightnessChangeAmount;
+  return brightnessChangeAmount || 5;
+}
+
+export function defaultBrightness() {
+  const { defaultBrightness } = getPreferenceValues<Preferences>();
+  return defaultBrightness || 10;
+}
+
+export function defaultTemperature() {
+  const { defaultTemperature } = getPreferenceValues<Preferences>();
+  return defaultTemperature || 3000;
 }
 
 export function openPreferences() {
