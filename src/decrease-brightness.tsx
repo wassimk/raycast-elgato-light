@@ -8,7 +8,12 @@ export default async function Main() {
   if (!ipAddress) {
     return openPreferences();
   } else {
-    execute(`brightness --ip-address ${ipAddress} -- -5`);
-    await showHUD("Elgate light brightness decreased");
+    try {
+      await execute(`brightness --ip-address ${ipAddress} -- -5`);
+      await showHUD("Light brightness decreased");
+    } catch (error) {
+      console.log(error);
+      await showHUD("Error decreasing light brightness");
+    }
   }
 }

@@ -8,7 +8,12 @@ export default async function Main() {
   if (!ipAddress) {
     return openPreferences();
   } else {
-    execute(`on --ip-address ${ipAddress}`);
-    await showHUD("Elgato light turned on");
+    try {
+      await execute(`on --ip-address ${ipAddress}`);
+      await showHUD("Light turned on");
+    } catch (error) {
+      console.log(error);
+      await showHUD("Error turning on light");
+    }
   }
 }

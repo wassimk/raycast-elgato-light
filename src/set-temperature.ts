@@ -8,7 +8,12 @@ export default async function Main({ arguments: { temperature } }: { arguments: 
   if (!ipAddress) {
     return openPreferences();
   } else {
-    execute(`temperature ${temperature} --ip-address ${ipAddress}`);
-    await showHUD(`Elgato light temperature set to ${temperature}`);
+    try {
+      await execute(`temperature ${temperature} --ip-address ${ipAddress}`);
+      await showHUD(`Light temperature set to ${temperature}`);
+    } catch (error) {
+      console.log(error);
+      await showHUD("Error setting light temperature");
+    }
   }
 }

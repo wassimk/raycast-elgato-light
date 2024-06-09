@@ -45,7 +45,6 @@ export function elgatoCLIFilePath(): string {
 
 export async function execute(command: string) {
   const cliPath = await ensureCLI();
-  console.log("cliPath:", cliPath);
 
   exec(`"${cliPath}" ${command}`, (error, stdout, stderr) => {
     if (error) {
@@ -68,12 +67,6 @@ export async function ensureCLI() {
     const cliDir = path.join(environment.supportPath, "cli");
     const tempDir = path.join(environment.supportPath, ".tmp");
 
-    console.log("binaryURL:", binaryURL);
-    console.log("cliDir:", cliDir);
-    console.log("tempDir:", tempDir);
-    console.log("cliBinary:", cli);
-    console.log("cliFileInfo:", cliFileInfo.pkg);
-
     try {
       await download(binaryURL, tempDir, { filename: cliFileInfo.pkg });
     } catch (error) {
@@ -84,9 +77,6 @@ export async function ensureCLI() {
       const archive = path.join(tempDir, cliFileInfo.pkg);
       const archiveHash = await sha256FileHash(archive);
 
-      console.log("archiveHash:", archiveHash);
-      console.log("expectedHash: ", cliFileInfo.sha256);
-
       if (archiveHash === cliFileInfo.sha256) {
         await afs.mkdir(cliDir, { recursive: true });
         await tar.extract({ file: archive, filter: (p) => p === "elgato-light", cwd: cliDir });
@@ -94,9 +84,8 @@ export async function ensureCLI() {
         throw Error("Hash of elgato-light CLI archive is wrong");
       }
     } catch (error) {
-      throw new Error("Could not extract tar.gz content of elgato-light CLI");
+      throw Error("Could not extract downloaded archived of elgato-light CLI");
     } finally {
-      console.log("Cleaning up");
       await afs.rm(tempDir, { recursive: true });
     }
 
