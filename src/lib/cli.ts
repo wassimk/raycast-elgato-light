@@ -43,16 +43,17 @@ export function elgatoCLIFilePath(): string {
   return path.join(elgatoLightCLIDirectory(), "elgato-light");
 }
 
-export async function execute(command: string) {
+export async function execute(command: string): Promise<void> {
   const cliPath = await ensureCLI();
 
-  exec(`"${cliPath}" ${command}`, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`exec error: ${error}`);
-      return;
-    }
-    console.log(`stdout: ${stdout}`);
-    console.error(`stderr: ${stderr}`);
+  return new Promise((resolve, reject) => {
+    exec(`"${cliPath}" ${command}`, (error) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve();
+      }
+    });
   });
 }
 
