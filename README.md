@@ -21,7 +21,7 @@ git clone https://github.com/wassimk/raycast-elgato-light.git
 cd raycast-elgato-light
 ```
 
-Run npm install and start the extension in development mode
+Run npm install and start the extension in development mode.
 
 ```shell
 npm install && npm run dev
