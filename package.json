@@ -66,37 +66,89 @@
       "description": "The defalt temperature to set the light to. Between 2900 and 7000",
       "default": "3000",
       "placeholder": "3000"
+    },
+    {
+      "name": "nightLightBrightness",
+      "type": "textfield",
+      "required": false,
+      "key": "nightLightBrightness",
+      "title": "Night Light Brightness",
+      "description": "The defalt brightness to set the light to for night mode. Between 1 and 100",
+      "default": "20",
+      "placeholder": "20"
+    },
+    {
+      "name": "nightLightTemperature",
+      "type": "textfield",
+      "required": false,
+      "key": "nightLightTemperature",
+      "title": "Night Light Temperature",
+      "description": "The defalt temperature to set the light to for night mode. Between 2900 and 7000",
+      "default": "3000",
+      "placeholder": "3000"
+    },
+    {
+      "name": "dayLightBrightness",
+      "type": "textfield",
+      "required": false,
+      "key": "dayLightBrightness",
+      "title": "Day Light Brightness",
+      "description": "The defalt brightness to set the light to for day mode. Between 1 and 100",
+      "default": "5",
+      "placeholder": "5"
+    },
+    {
+      "name": "dayLightTemperature",
+      "type": "textfield",
+      "required": false,
+      "key": "dayLightTemperature",
+      "title": "Day Light Temperature",
+      "description": "The defalt temperature to set the light to for day mode. Between 2900 and 7000",
+      "default": "5000",
+      "placeholder": "5000"
     }
   ],
   "commands": [
     {
       "name": "turn-on",
       "title": "Turn On",
-      "description": "Turn on the light",
+      "description": "Turn light(s) on to default settings",
+      "mode": "no-view"
+    },
+    {
+      "name": "turn-on-day-light",
+      "title": "Turn On Day Light",
+      "description": "Turn light(s) on to day light settings",
+      "mode": "no-view"
+    },
+    {
+      "name": "turn-on-night-light",
+      "title": "Turn On Night Light",
+      "description": "Turn light(s) on to night light settings",
       "mode": "no-view"
     },
     {
       "name": "turn-off",
       "title": "Turn Off",
-      "description": "Turn off the light",
+      "description": "Turn light(s) off",
       "mode": "no-view"
     },
     {
       "name": "increase-brightness",
       "title": "Increase Brightness",
-      "description": "Increaset the brightness",
+      "description": "Increase the brightness of light(s)",
       "mode": "no-view"
     },
     {
       "name": "decrease-brightness",
       "title": "Decrease Brightness",
-      "description": "Decrease the brightness",
+      "description": "Decrease the brightness of light(s)",
       "mode": "no-view"
     },
     {
       "name": "set-temperature",
       "title": "Set Temperature",
-      "description": "Set the temperature",
+      "description": "Set the temperature of light(s)",
       "arguments": [
         {
           "name": "temperature",
@@ -104,7 +156,7 @@
           "required": true,
           "title": "Temperature",
           "placeholder": "3000",
-          "description": "The temperature to set the light to."
+          "description": "The temperature to set the light(s) to."
         }
       ],
       "mode": "no-view"
