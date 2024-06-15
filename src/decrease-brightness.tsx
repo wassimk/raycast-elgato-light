@@ -1,19 +1,21 @@
 import { showHUD } from "@raycast/api";
-import { getIPAddress, brightnessChangeAmount, openPreferences } from "./lib/utils";
+import { getIPAddresses, brightnessChangeAmount, openPreferences } from "./lib/utils";
 import { execute } from "./lib/cli";
 
 export default async function Main() {
-  const ipAddress = getIPAddress();
+  const ipAddresses = getIPAddresses();
 
-  if (!ipAddress) {
+  if (ipAddresses.length === 0) {
     return openPreferences();
   } else {
-    try {
-      await execute(`brightness --ip-address ${ipAddress} -- -${brightnessChangeAmount()}`);
-      await showHUD("Light brightness decreased");
-    } catch (error) {
-      console.log(error);
-      await showHUD("Error decreasing light brightness");
+    for (const ipAddress of ipAddresses) {
+      try {
+        console.log(`brightness --ip-address ${ipAddress} -- -${brightnessChangeAmount()}`);
+        await execute(`brightness --ip-address ${ipAddress} -- -${brightnessChangeAmount()}`);
+      } catch (error) {
+        console.log(error);
+        await showHUD("Error decreasing light brightness");
+      }
     }
   }
 }

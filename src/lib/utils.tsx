@@ -2,15 +2,28 @@ import { getPreferenceValues } from "@raycast/api";
 import { ActionPanel, Action, Detail, openExtensionPreferences } from "@raycast/api";
 
 type Preferences = {
-  ipAddress: string;
+  ipAddress1: string;
+  ipAddress2: string;
+  ipAddress3: string;
   brightnessChangeAmount: number;
   defaultTemperature: number;
   defaultBrightness: number;
 };
 
-export function getIPAddress() {
-  const { ipAddress } = getPreferenceValues<Preferences>();
-  return ipAddress;
+export function getIPAddresses() {
+  const { ipAddress1, ipAddress2, ipAddress3 } = getPreferenceValues<Preferences>();
+
+  const ipAddresses = [];
+  if (ipAddress1) {
+    ipAddresses.push(ipAddress1);
+  }
+  if (ipAddress2) {
+    ipAddresses.push(ipAddress2);
+  }
+  if (ipAddress3) {
+    ipAddresses.push(ipAddress3);
+  }
+  return ipAddresses;
 }
 
 export function brightnessChangeAmount() {

@@ -1,19 +1,21 @@
 import { showHUD } from "@raycast/api";
-import { getIPAddress, openPreferences } from "./lib/utils";
+import { getIPAddresses, openPreferences } from "./lib/utils";
 import { execute } from "./lib/cli";
 
 export default async function Main({ arguments: { temperature } }: { arguments: { temperature: string } }) {
-  const ipAddress = getIPAddress();
+  const ipAddresses = getIPAddresses();
 
-  if (!ipAddress) {
+  if (ipAddresses.length === 0) {
     return openPreferences();
   } else {
-    try {
-      await execute(`temperature ${temperature} --ip-address ${ipAddress}`);
-      await showHUD(`Light temperature set to ${temperature}`);
-    } catch (error) {
-      console.log(error);
-      await showHUD("Error setting light temperature");
+    for (const ipAddress of ipAddresses) {
+      try {
+        console.log(`Setting light temperature to ${temperature} on ${ipAddress}`);
+        await execute(`temperature ${temperature} --ip-address ${ipAddress}`);
+      } catch (error) {
+        console.log(error);
+        await showHUD("Error setting light temperature");
+      }
     }
   }
 }
