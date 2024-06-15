@@ -1,6 +1,6 @@
-# Elgato Light Controller
+# Elgato Lights Controller
 
-Control one Elgato light by its IP address.
+Control Elgato lights by IP address.
 
 ## Installation
 
