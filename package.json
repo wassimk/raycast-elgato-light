@@ -53,7 +53,7 @@
       "required": false,
       "key": "defaultBrightness",
       "title": "Default Brightness",
-      "description": "The defalt brightness to set the light to. Between 1 and 100",
+      "description": "The default brightness to set the light to. Between 1 and 100",
       "default": "10",
       "placeholder": "10"
     },
@@ -63,7 +63,7 @@
       "required": false,
       "key": "defaultTemperature",
       "title": "Default Temperature",
-      "description": "The defalt temperature to set the light to. Between 2900 and 7000",
+      "description": "The default temperature to set the light to. Between 2900 and 7000",
       "default": "3000",
       "placeholder": "3000"
     },
@@ -73,7 +73,7 @@
       "required": false,
       "key": "nightLightBrightness",
       "title": "Night Light Brightness",
-      "description": "The defalt brightness to set the light to for night mode. Between 1 and 100",
+      "description": "The default brightness to set the light to for night mode. Between 1 and 100",
       "default": "20",
       "placeholder": "20"
     },
@@ -83,7 +83,7 @@
       "required": false,
       "key": "nightLightTemperature",
       "title": "Night Light Temperature",
-      "description": "The defalt temperature to set the light to for night mode. Between 2900 and 7000",
+      "description": "The default temperature to set the light to for night mode. Between 2900 and 7000",
       "default": "3000",
       "placeholder": "3000"
     },
@@ -93,7 +93,7 @@
       "required": false,
       "key": "dayLightBrightness",
       "title": "Day Light Brightness",
-      "description": "The defalt brightness to set the light to for day mode. Between 1 and 100",
+      "description": "The default brightness to set the light to for day mode. Between 1 and 100",
       "default": "5",
       "placeholder": "5"
     },
@@ -103,7 +103,7 @@
       "required": false,
       "key": "dayLightTemperature",
       "title": "Day Light Temperature",
-      "description": "The defalt temperature to set the light to for day mode. Between 2900 and 7000",
+      "description": "The default temperature to set the light to for day mode. Between 2900 and 7000",
       "default": "5000",
       "placeholder": "5000"
     }
@@ -111,25 +111,25 @@
   "commands": [
     {
       "name": "turn-on",
-      "title": "Turn On",
+      "title": "Turn on",
       "description": "Turn light(s) on to default settings",
       "mode": "no-view"
     },
     {
       "name": "turn-on-day-light",
-      "title": "Turn On Day Light",
+      "title": "Turn on Day Light",
       "description": "Turn light(s) on to day light settings",
       "mode": "no-view"
     },
     {
       "name": "turn-on-night-light",
-      "title": "Turn On Night Light",
+      "title": "Turn on Night Light",
       "description": "Turn light(s) on to night light settings",
       "mode": "no-view"
     },
     {
       "name": "turn-off",
-      "title": "Turn Off",
+      "title": "Turn off",
       "description": "Turn light(s) off",
       "mode": "no-view"
     },
@@ -171,16 +171,13 @@
   "tools": [],
   "dependencies": {
     "@raycast/api": "^1.76.0",
-    "download": "^8.0.0",
-    "electron": "^30.1.0",
     "sha256-file": "^1.0.0",
     "tar": "^7.2.0"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.6",
-    "@types/download": "^8.0.5",
-    "@types/node": "20.8.10",
-    "@types/react": "18.2.27",
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
     "@types/sha256-file": "^1.0.3",
     "@types/tar": "^6.1.13",
     "eslint": "^8.51.0",
