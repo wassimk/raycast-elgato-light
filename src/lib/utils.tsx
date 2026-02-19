@@ -2,58 +2,65 @@ import { getPreferenceValues } from "@raycast/api";
 import { ActionPanel, Action, Detail, openExtensionPreferences } from "@raycast/api";
 
 type Preferences = {
-  ipAddress1: string;
-  ipAddress2: string;
-  ipAddress3: string;
-  defaultBrightness: number;
-  defaultTemperature: number;
-  brightnessChangeAmount: number;
-  dayLightBrightness: number;
-  dayLightTemperature: number;
-  nightLightBrightness: number;
-  nightLightTemperature: number;
+  ipAddresses: string;
+  defaultBrightness: string;
+  defaultTemperature: string;
+  brightnessChangeAmount: string;
+  dayLightBrightness: string;
+  dayLightTemperature: string;
+  nightLightBrightness: string;
+  nightLightTemperature: string;
 };
 
-export function getIPAddresses() {
-  const { ipAddress1, ipAddress2, ipAddress3 } = getPreferenceValues<Preferences>();
-  const ipAddresses = [ipAddress1, ipAddress2, ipAddress3].filter(Boolean);
-
-  return ipAddresses;
+function getPrefs(): Preferences {
+  return getPreferenceValues<Preferences>();
 }
 
-export function defaultBrightness() {
-  const { defaultBrightness } = getPreferenceValues<Preferences>();
-  return defaultBrightness || 10;
+export function getIPAddresses(): string[] {
+  return getPrefs()
+    .ipAddresses.split(",")
+    .map((ip) => ip.trim())
+    .filter(Boolean);
 }
 
-export function defaultTemperature() {
-  const { defaultTemperature } = getPreferenceValues<Preferences>();
-  return defaultTemperature || 3000;
+export function defaultBrightness(): string {
+  return getPrefs().defaultBrightness || "10";
 }
 
-export function dayLightBrightness() {
-  const { dayLightBrightness } = getPreferenceValues<Preferences>();
-  return dayLightBrightness || 10;
+export function defaultTemperature(): string {
+  return getPrefs().defaultTemperature || "3000";
 }
 
-export function dayLightTemperature() {
-  const { dayLightTemperature } = getPreferenceValues<Preferences>();
-  return dayLightTemperature || 5000;
+export function dayLightBrightness(): string {
+  return getPrefs().dayLightBrightness || "5";
 }
 
-export function nightLightBrightness() {
-  const { nightLightBrightness } = getPreferenceValues<Preferences>();
-  return nightLightBrightness || 20;
+export function dayLightTemperature(): string {
+  return getPrefs().dayLightTemperature || "5000";
 }
 
-export function nightLightTemperature() {
-  const { nightLightTemperature } = getPreferenceValues<Preferences>();
-  return nightLightTemperature || 3000;
+export function nightLightBrightness(): string {
+  return getPrefs().nightLightBrightness || "20";
 }
 
-export function brightnessChangeAmount() {
-  const { brightnessChangeAmount } = getPreferenceValues<Preferences>();
-  return brightnessChangeAmount || 5;
+export function nightLightTemperature(): string {
+  return getPrefs().nightLightTemperature || "3000";
+}
+
+export function brightnessChangeAmount(): string {
+  return getPrefs().brightnessChangeAmount || "5";
+}
+
+export function validateBrightness(value: string, label: string): string | null {
+  const n = Number(value);
+  if (isNaN(n) || n < 1 || n > 100) return `${label} must be between 1 and 100`;
+  return null;
+}
+
+export function validateTemperature(value: string, label: string): string | null {
+  const n = Number(value);
+  if (isNaN(n) || n < 2900 || n > 7000) return `${label} must be between 2900 and 7000`;
+  return null;
 }
 
 export function openPreferences() {

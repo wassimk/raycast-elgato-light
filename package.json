@@ -11,41 +11,23 @@
   "license": "MIT",
   "preferences": [
     {
-      "name": "ipAddress1",
+      "name": "ipAddresses",
       "type": "textfield",
       "required": true,
-      "key": "ip-address-1",
-      "title": "IP Address #1",
-      "description": "The IP address of an Elgato light.",
-      "placeholder": "192.168.0.25"
-    },
-    {
-      "name": "ipAddress2",
-      "type": "textfield",
-      "required": false,
-      "key": "ip-address-2",
-      "title": "IP Address #2",
-      "description": "The IP address of an Elgato light.",
-      "placeholder": "192.168.0.26"
-    },
-    {
-      "name": "ipAddress3",
-      "type": "textfield",
-      "required": false,
-      "key": "ip-address-3",
-      "title": "IP Address #3",
-      "description": "The IP address of an Elgato light.",
-      "placeholder": "192.168.0.27"
+      "key": "ip-addresses",
+      "title": "IP Addresses",
+      "description": "Comma-separated IP addresses of Elgato lights.",
+      "placeholder": "192.168.0.25, 192.168.0.26"
     },
     {
       "name": "brightnessChangeAmount",
       "type": "textfield",
       "required": false,
       "key": "brightnessChangeAmount",
-      "title": "Brightness Change Amount",
+      "title": "Brightness Increment Amount",
       "description": "The amount to increment/decrement brightness by. Between 1 and 100",
       "default": "5",
-      "placeholder": "5"
+      "placeholder": "1-100"
     },
     {
       "name": "defaultBrightness",
@@ -53,9 +35,9 @@
       "required": false,
       "key": "defaultBrightness",
       "title": "Default Brightness",
-      "description": "The defalt brightness to set the light to. Between 1 and 100",
+      "description": "The default brightness to set the light to. Between 1 and 100",
       "default": "10",
-      "placeholder": "10"
+      "placeholder": "1-100"
     },
     {
       "name": "defaultTemperature",
@@ -63,9 +45,9 @@
       "required": false,
       "key": "defaultTemperature",
       "title": "Default Temperature",
-      "description": "The defalt temperature to set the light to. Between 2900 and 7000",
+      "description": "The default temperature to set the light to. Between 2900 and 7000",
       "default": "3000",
-      "placeholder": "3000"
+      "placeholder": "2900-7000"
     },
     {
       "name": "nightLightBrightness",
@@ -73,9 +55,9 @@
       "required": false,
       "key": "nightLightBrightness",
       "title": "Night Light Brightness",
-      "description": "The defalt brightness to set the light to for night mode. Between 1 and 100",
+      "description": "The default brightness to set the light to for night mode. Between 1 and 100",
       "default": "20",
-      "placeholder": "20"
+      "placeholder": "1-100"
     },
     {
       "name": "nightLightTemperature",
@@ -83,9 +65,9 @@
       "required": false,
       "key": "nightLightTemperature",
       "title": "Night Light Temperature",
-      "description": "The defalt temperature to set the light to for night mode. Between 2900 and 7000",
+      "description": "The default temperature to set the light to for night mode. Between 2900 and 7000",
       "default": "3000",
-      "placeholder": "3000"
+      "placeholder": "2900-7000"
     },
     {
       "name": "dayLightBrightness",
@@ -93,9 +75,9 @@
       "required": false,
       "key": "dayLightBrightness",
       "title": "Day Light Brightness",
-      "description": "The defalt brightness to set the light to for day mode. Between 1 and 100",
+      "description": "The default brightness to set the light to for day mode. Between 1 and 100",
       "default": "5",
-      "placeholder": "5"
+      "placeholder": "1-100"
     },
     {
       "name": "dayLightTemperature",
@@ -103,33 +85,33 @@
       "required": false,
       "key": "dayLightTemperature",
       "title": "Day Light Temperature",
-      "description": "The defalt temperature to set the light to for day mode. Between 2900 and 7000",
+      "description": "The default temperature to set the light to for day mode. Between 2900 and 7000",
       "default": "5000",
-      "placeholder": "5000"
+      "placeholder": "2900-7000"
     }
   ],
   "commands": [
     {
       "name": "turn-on",
-      "title": "Turn On",
+      "title": "Turn on",
       "description": "Turn light(s) on to default settings",
       "mode": "no-view"
     },
     {
       "name": "turn-on-day-light",
-      "title": "Turn On Day Light",
+      "title": "Turn on Day Light",
       "description": "Turn light(s) on to day light settings",
       "mode": "no-view"
     },
     {
       "name": "turn-on-night-light",
-      "title": "Turn On Night Light",
+      "title": "Turn on Night Light",
       "description": "Turn light(s) on to night light settings",
       "mode": "no-view"
     },
     {
       "name": "turn-off",
-      "title": "Turn Off",
+      "title": "Turn off",
       "description": "Turn light(s) off",
       "mode": "no-view"
     },
@@ -155,7 +137,7 @@
           "type": "text",
           "required": true,
           "title": "Temperature",
-          "placeholder": "3000",
+          "placeholder": "2900-7000",
           "description": "The temperature to set the light(s) to."
         }
       ],
@@ -171,16 +153,13 @@
   "tools": [],
   "dependencies": {
     "@raycast/api": "^1.76.0",
-    "download": "^8.0.0",
-    "electron": "^30.1.0",
     "sha256-file": "^1.0.0",
     "tar": "^7.2.0"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.6",
-    "@types/download": "^8.0.5",
-    "@types/node": "20.8.10",
-    "@types/react": "18.2.27",
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
     "@types/sha256-file": "^1.0.3",
     "@types/tar": "^6.1.13",
     "eslint": "^8.51.0",
