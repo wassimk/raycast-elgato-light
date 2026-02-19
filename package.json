@@ -93,25 +93,25 @@
   "commands": [
     {
       "name": "turn-on",
-      "title": "Turn On",
+      "title": "Turn on",
       "description": "Turn light(s) on to default settings",
       "mode": "no-view"
     },
     {
       "name": "turn-on-day-light",
-      "title": "Turn On Day Light",
+      "title": "Turn on Day Light",
       "description": "Turn light(s) on to day light settings",
       "mode": "no-view"
     },
     {
       "name": "turn-on-night-light",
-      "title": "Turn On Night Light",
+      "title": "Turn on Night Light",
       "description": "Turn light(s) on to night light settings",
       "mode": "no-view"
     },
     {
       "name": "turn-off",
-      "title": "Turn Off",
+      "title": "Turn off",
       "description": "Turn light(s) off",
       "mode": "no-view"
     },
