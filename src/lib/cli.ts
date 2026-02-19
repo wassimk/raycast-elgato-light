@@ -73,6 +73,18 @@ export function elgatoCLIFilePath(): string {
   return path.join(elgatoLightCLIDirectory(), "elgato-light");
 }
 
+function cliVersionFilePath(): string {
+  return path.join(elgatoLightCLIDirectory(), "elgato-light.version");
+}
+
+function isCurrentVersion(): boolean {
+  try {
+    return fs.readFileSync(cliVersionFilePath(), "utf-8").trim() === cliVersion;
+  } catch {
+    return false;
+  }
+}
+
 export async function execute(args: string[]): Promise<void> {
   const cliPath = await ensureCLI();
 
@@ -90,8 +102,13 @@ export async function execute(args: string[]): Promise<void> {
 export async function ensureCLI() {
   const cli = elgatoCLIFilePath();
 
-  if (fs.existsSync(cli)) {
+  if (fs.existsSync(cli) && isCurrentVersion()) {
     return cli;
+  }
+
+  // Remove outdated binary before re-downloading
+  if (fs.existsSync(cli)) {
+    fs.unlinkSync(cli);
   }
 
   const repoUrl = "https://github.com/wassimk/elgato-light";
@@ -128,8 +145,10 @@ export async function ensureCLI() {
 
   try {
     await afs.chmod(cli, "755");
+    await afs.writeFile(cliVersionFilePath(), cliVersion);
   } catch {
-    await afs.rm(cli);
+    await afs.rm(cli, { force: true });
+    await afs.rm(cliVersionFilePath(), { force: true });
     throw new Error("Could not chmod elgato-light CLI");
   }
 
