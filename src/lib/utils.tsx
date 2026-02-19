@@ -51,6 +51,18 @@ export function brightnessChangeAmount(): string {
   return getPrefs().brightnessChangeAmount || "5";
 }
 
+export function validateBrightness(value: string, label: string): string | null {
+  const n = Number(value);
+  if (isNaN(n) || n < 1 || n > 100) return `${label} must be between 1 and 100`;
+  return null;
+}
+
+export function validateTemperature(value: string, label: string): string | null {
+  const n = Number(value);
+  if (isNaN(n) || n < 2900 || n > 7000) return `${label} must be between 2900 and 7000`;
+  return null;
+}
+
 export function openPreferences() {
   const markdown =
     "An IP address for at least one light must be set. Please update it in extension preferences and try again.";
