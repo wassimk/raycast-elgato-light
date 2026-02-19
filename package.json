@@ -137,7 +137,7 @@
           "type": "text",
           "required": true,
           "title": "Temperature",
-          "placeholder": "3000",
+          "placeholder": "2900-7000",
           "description": "The temperature to set the light(s) to."
         }
       ],
