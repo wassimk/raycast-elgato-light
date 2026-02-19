@@ -6,7 +6,10 @@ export default async function Main() {
   const error =
     validateBrightness(nightLightBrightness(), "Night light brightness") ||
     validateTemperature(nightLightTemperature(), "Night light temperature");
-  if (error) { await showHUD(error); return; }
+  if (error) {
+    await showHUD(error);
+    return;
+  }
 
   await executeForAllLights(
     (ip) => [
