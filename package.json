@@ -24,7 +24,7 @@
       "type": "textfield",
       "required": false,
       "key": "brightnessChangeAmount",
-      "title": "Brightness Change Amount",
+      "title": "Brightness Increment Amount",
       "description": "The amount to increment/decrement brightness by. Between 1 and 100",
       "default": "5",
       "placeholder": "5"
