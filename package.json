@@ -11,31 +11,13 @@
   "license": "MIT",
   "preferences": [
     {
-      "name": "ipAddress1",
+      "name": "ipAddresses",
       "type": "textfield",
       "required": true,
-      "key": "ip-address-1",
-      "title": "IP Address #1",
-      "description": "The IP address of an Elgato light.",
-      "placeholder": "192.168.0.25"
-    },
-    {
-      "name": "ipAddress2",
-      "type": "textfield",
-      "required": false,
-      "key": "ip-address-2",
-      "title": "IP Address #2",
-      "description": "The IP address of an Elgato light.",
-      "placeholder": "192.168.0.26"
-    },
-    {
-      "name": "ipAddress3",
-      "type": "textfield",
-      "required": false,
-      "key": "ip-address-3",
-      "title": "IP Address #3",
-      "description": "The IP address of an Elgato light.",
-      "placeholder": "192.168.0.27"
+      "key": "ip-addresses",
+      "title": "IP Addresses",
+      "description": "Comma-separated IP addresses of Elgato lights.",
+      "placeholder": "192.168.0.25, 192.168.0.26"
     },
     {
       "name": "brightnessChangeAmount",
