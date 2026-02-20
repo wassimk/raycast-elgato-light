@@ -145,7 +145,7 @@
     },
     {
       "name": "discover",
-      "title": "Discover Lights",
+      "title": "Discover Light(s)",
       "description": "Discover Elgato lights on the network and cache them",
       "mode": "no-view"
     },
