@@ -144,6 +144,18 @@
       "mode": "no-view"
     },
     {
+      "name": "discover",
+      "title": "Discover Lights",
+      "description": "Discover Elgato lights on the network and cache them",
+      "mode": "no-view"
+    },
+    {
+      "name": "clear-cache",
+      "title": "Clear Light Cache",
+      "description": "Clear the cached light discovery data",
+      "mode": "no-view"
+    },
+    {
       "name": "preferences",
       "title": "Preferences",
       "description": "Set the preferences for the Elgato light controller",

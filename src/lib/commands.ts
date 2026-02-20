@@ -1,38 +1,50 @@
-import { showHUD } from "@raycast/api";
+import { showHUD, showToast, Toast } from "@raycast/api";
 import { getIPAddresses } from "./utils";
 import { execute } from "./cli";
 
-const MAX_DISCOVERY_ATTEMPTS = 3;
-
-async function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+const MAX_DISCOVERY_ATTEMPTS = 2;
+const TOAST_DELAY_MS = 500;
 
 export async function executeCommand(baseArgs: string[], errorMessage: string) {
   const ipAddresses = getIPAddresses();
 
-  if (ipAddresses.length > 0) {
-    for (const ip of ipAddresses) {
-      try {
-        await execute(["--ip-address", ip, ...baseArgs]);
-      } catch (error) {
-        console.log(error);
-        await showHUD(`${errorMessage} at ${ip}`);
-      }
+  if (ipAddresses) {
+    try {
+      await execute(["--ip-address", ipAddresses, ...baseArgs]);
+    } catch (error) {
+      console.log(error);
+      await showHUD(errorMessage);
     }
   } else {
+    let toast: Toast | null = null;
+    const toastTimer = setTimeout(async () => {
+      toast = await showToast({ style: Toast.Style.Animated, title: "Discovering light(s)…" });
+    }, TOAST_DELAY_MS);
+
     for (let attempt = 1; attempt <= MAX_DISCOVERY_ATTEMPTS; attempt++) {
       try {
-        await execute(baseArgs);
+        await execute(["--timeout", "15", ...baseArgs]);
+        clearTimeout(toastTimer);
+        await toast?.hide();
         return;
       } catch (error) {
         console.log(error);
 
         if (attempt < MAX_DISCOVERY_ATTEMPTS) {
-          await showHUD("Light not found, retrying...");
-          await sleep(1000);
+          clearTimeout(toastTimer);
+          if (!toast) {
+            toast = await showToast({ style: Toast.Style.Animated, title: "Light(s) not found, retrying…" });
+          } else {
+            toast.title = "Light(s) not found, retrying…";
+          }
         } else {
-          await showHUD("Could not find light — check power or set IP in preferences.");
+          clearTimeout(toastTimer);
+          if (!toast) {
+            toast = await showToast({ style: Toast.Style.Failure, title: "Could not find light(s) — check power or set IP in preferences." });
+          } else {
+            toast.style = Toast.Style.Failure;
+            toast.title = "Could not find light(s) — check power or set IP in preferences.";
+          }
         }
       }
     }

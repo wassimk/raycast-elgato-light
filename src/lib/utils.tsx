@@ -15,13 +15,14 @@ function getPrefs(): Preferences {
   return getPreferenceValues<Preferences>();
 }
 
-export function getIPAddresses(): string[] {
+export function getIPAddresses(): string {
   const raw = getPrefs().ipAddresses;
-  if (!raw) return [];
+  if (!raw) return "";
   return raw
     .split(",")
     .map((ip) => ip.trim())
-    .filter(Boolean);
+    .filter(Boolean)
+    .join(",");
 }
 
 export function defaultBrightness(): string {
