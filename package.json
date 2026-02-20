@@ -1,8 +1,8 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "elgato-light-controller",
-  "title": "Elgato Light Controller",
-  "description": "Control Elgato lights by IP address.",
+  "title": "Elgato Light",
+  "description": "Control Elgato lights with auto-discovery or by IP address.",
   "icon": "extension-icon.png",
   "author": "wassimk",
   "categories": [
@@ -13,11 +13,11 @@
     {
       "name": "ipAddresses",
       "type": "textfield",
-      "required": true,
+      "required": false,
       "key": "ip-addresses",
       "title": "IP Addresses",
-      "description": "Comma-separated IP addresses of Elgato lights.",
-      "placeholder": "192.168.0.25, 192.168.0.26"
+      "description": "Comma-separated IP addresses. Leave empty to auto-discover via Bonjour.",
+      "placeholder": "Auto-discover or 192.168.0.25, ..."
     },
     {
       "name": "brightnessChangeAmount",
@@ -141,6 +141,18 @@
           "description": "The temperature to set the light(s) to."
         }
       ],
+      "mode": "no-view"
+    },
+    {
+      "name": "discover",
+      "title": "Discover Lights",
+      "description": "Discover Elgato lights on the network and cache them",
+      "mode": "no-view"
+    },
+    {
+      "name": "clear-cache",
+      "title": "Clear Light Cache",
+      "description": "Clear the cached light discovery data",
       "mode": "no-view"
     },
     {

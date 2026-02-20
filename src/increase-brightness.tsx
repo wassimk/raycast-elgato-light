@@ -1,6 +1,6 @@
 import { showHUD } from "@raycast/api";
 import { brightnessChangeAmount, validateBrightness } from "./lib/utils";
-import { executeForAllLights } from "./lib/commands";
+import { executeCommand } from "./lib/commands";
 
 export default async function Main() {
   const error = validateBrightness(brightnessChangeAmount(), "Brightness increment amount");
@@ -9,8 +9,5 @@ export default async function Main() {
     return;
   }
 
-  await executeForAllLights(
-    (ip) => ["brightness", brightnessChangeAmount(), "--ip-address", ip],
-    "Error increasing light brightness",
-  );
+  await executeCommand(["brightness", brightnessChangeAmount()], "Error increasing light brightness");
 }

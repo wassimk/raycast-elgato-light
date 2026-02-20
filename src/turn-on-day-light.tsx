@@ -1,6 +1,6 @@
 import { showHUD } from "@raycast/api";
 import { dayLightTemperature, dayLightBrightness, validateBrightness, validateTemperature } from "./lib/utils";
-import { executeForAllLights } from "./lib/commands";
+import { executeCommand } from "./lib/commands";
 
 export default async function Main() {
   const error =
@@ -11,8 +11,8 @@ export default async function Main() {
     return;
   }
 
-  await executeForAllLights(
-    (ip) => ["on", "--ip-address", ip, "--temperature", dayLightTemperature(), "--brightness", dayLightBrightness()],
+  await executeCommand(
+    ["on", "--temperature", dayLightTemperature(), "--brightness", dayLightBrightness()],
     "Error turning on light",
   );
 }
