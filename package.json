@@ -6,7 +6,7 @@
   "icon": "extension-icon.png",
   "author": "wassimk",
   "categories": [
-    "Other"
+    "System"
   ],
   "license": "MIT",
   "preferences": [
@@ -94,42 +94,49 @@
     {
       "name": "turn-on",
       "title": "Turn on",
+      "subtitle": "Elgato Light",
       "description": "Turn light(s) on to default settings",
       "mode": "no-view"
     },
     {
       "name": "turn-on-day-light",
       "title": "Turn on Day Light",
+      "subtitle": "Elgato Light",
       "description": "Turn light(s) on to day light settings",
       "mode": "no-view"
     },
     {
       "name": "turn-on-night-light",
       "title": "Turn on Night Light",
+      "subtitle": "Elgato Light",
       "description": "Turn light(s) on to night light settings",
       "mode": "no-view"
     },
     {
       "name": "turn-off",
       "title": "Turn off",
+      "subtitle": "Elgato Light",
       "description": "Turn light(s) off",
       "mode": "no-view"
     },
     {
       "name": "increase-brightness",
       "title": "Increase Brightness",
+      "subtitle": "Elgato Light",
       "description": "Increase the brightness of light(s)",
       "mode": "no-view"
     },
     {
       "name": "decrease-brightness",
       "title": "Decrease Brightness",
+      "subtitle": "Elgato Light",
       "description": "Decrease the brightness of light(s)",
       "mode": "no-view"
     },
     {
       "name": "set-temperature",
       "title": "Set Temperature",
+      "subtitle": "Elgato Light",
       "description": "Set the temperature of light(s)",
       "arguments": [
         {
@@ -145,20 +152,16 @@
     },
     {
       "name": "discover",
-      "title": "Discover Light(s)",
+      "title": "Discover Lights",
+      "subtitle": "Elgato Light",
       "description": "Discover Elgato lights on the network and cache them",
       "mode": "no-view"
     },
     {
       "name": "clear-cache",
       "title": "Clear Light Cache",
+      "subtitle": "Elgato Light",
       "description": "Clear the cached light discovery data",
-      "mode": "no-view"
-    },
-    {
-      "name": "preferences",
-      "title": "Preferences",
-      "description": "Set the preferences for the Elgato light controller",
       "mode": "no-view"
     }
   ],
