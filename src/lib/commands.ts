@@ -40,7 +40,10 @@ export async function executeCommand(baseArgs: string[], errorMessage: string) {
         } else {
           clearTimeout(toastTimer);
           if (!toast) {
-            toast = await showToast({ style: Toast.Style.Failure, title: "Could not find light(s) — check power or set IP in preferences." });
+            toast = await showToast({
+              style: Toast.Style.Failure,
+              title: "Could not find light(s) — check power or set IP in preferences.",
+            });
           } else {
             toast.style = Toast.Style.Failure;
             toast.title = "Could not find light(s) — check power or set IP in preferences.";
