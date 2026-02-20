@@ -165,7 +165,46 @@
       "mode": "no-view"
     }
   ],
-  "tools": [],
+  "tools": [
+    {
+      "name": "turn-on",
+      "title": "Turn on",
+      "description": "Turn on Elgato light(s) with default brightness and temperature"
+    },
+    {
+      "name": "turn-off",
+      "title": "Turn off",
+      "description": "Turn off Elgato light(s)"
+    },
+    {
+      "name": "turn-on-day-light",
+      "title": "Turn on Day Light",
+      "description": "Turn on Elgato light(s) with the day light brightness and temperature preset"
+    },
+    {
+      "name": "turn-on-night-light",
+      "title": "Turn on Night Light",
+      "description": "Turn on Elgato light(s) with the night light brightness and temperature preset"
+    },
+    {
+      "name": "set-temperature",
+      "title": "Set Temperature",
+      "description": "Set the color temperature of Elgato light(s) to a specific Kelvin value (2900-7000)"
+    },
+    {
+      "name": "increase-brightness",
+      "title": "Increase Brightness",
+      "description": "Increase the brightness of Elgato light(s)"
+    },
+    {
+      "name": "decrease-brightness",
+      "title": "Decrease Brightness",
+      "description": "Decrease the brightness of Elgato light(s)"
+    }
+  ],
+  "ai": {
+    "instructions": "This extension controls Elgato lights. The user can have day light and night light presets configured with different brightness and temperature values. When the user asks to change the light scene or mood, prefer using the day light or night light presets. When the user asks for a specific temperature, use the set-temperature tool with a Kelvin value between 2900 (warm) and 7000 (cool)."
+  },
   "dependencies": {
     "@raycast/api": "^1.76.0",
     "sha256-file": "^1.0.0",
