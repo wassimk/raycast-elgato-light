@@ -8,17 +8,17 @@ import * as tar from "tar";
 import { execFile } from "child_process";
 import sha256 from "sha256-file";
 
-const cliVersion = "1.1.0";
+const cliVersion = "1.2.0";
 const cliFileInfos = {
   x64: {
     arch: "x86_64",
     pkg: "elgato-light-Darwin-x86_64.tar.gz",
-    sha256: "bb77d9ad70cbf168f5e76ca7226d5098982d2e0514d3b8a2723cec00719ee4d1",
+    sha256: "0a55ccf18c64e8dc51812ac28884a35cee13fcb31e1a0920fe41445ba754c936",
   },
   arm64: {
     arch: "aarch64",
     pkg: "elgato-light-Darwin-aarch64.tar.gz",
-    sha256: "f0d195cc0a18083bd20fc966dcaf0a133ee69aec372a30715204c456844f6b61",
+    sha256: "749ef4851b8612f3ac951ebf4f01581cdd2e5bd1609a9e5f742a13d55398cbe6",
   },
 };
 const cliFileInfo = os.arch() === "arm64" ? cliFileInfos.arm64 : cliFileInfos.x64;
@@ -89,9 +89,9 @@ export async function execute(args: string[]): Promise<void> {
   const cliPath = await ensureCLI();
 
   return new Promise((resolve, reject) => {
-    execFile(cliPath, args, (error) => {
+    execFile(cliPath, args, (error, _stdout, stderr) => {
       if (error) {
-        reject(error);
+        reject(new Error(stderr.trim() || error.message));
       } else {
         resolve();
       }

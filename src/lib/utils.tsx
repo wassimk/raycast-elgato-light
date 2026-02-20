@@ -1,5 +1,4 @@
 import { getPreferenceValues } from "@raycast/api";
-import { ActionPanel, Action, Detail, openExtensionPreferences } from "@raycast/api";
 
 type Preferences = {
   ipAddresses: string;
@@ -17,8 +16,10 @@ function getPrefs(): Preferences {
 }
 
 export function getIPAddresses(): string[] {
-  return getPrefs()
-    .ipAddresses.split(",")
+  const raw = getPrefs().ipAddresses;
+  if (!raw) return [];
+  return raw
+    .split(",")
     .map((ip) => ip.trim())
     .filter(Boolean);
 }
@@ -61,19 +62,4 @@ export function validateTemperature(value: string, label: string): string | null
   const n = Number(value);
   if (isNaN(n) || n < 2900 || n > 7000) return `${label} must be between 2900 and 7000`;
   return null;
-}
-
-export function openPreferences() {
-  const markdown =
-    "An IP address for at least one light must be set. Please update it in extension preferences and try again.";
-  return (
-    <Detail
-      markdown={markdown}
-      actions={
-        <ActionPanel>
-          <Action title="Open Extension Preferences" onAction={openExtensionPreferences} />
-        </ActionPanel>
-      }
-    />
-  );
 }
