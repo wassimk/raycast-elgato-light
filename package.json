@@ -9,6 +9,7 @@
     "System"
   ],
   "license": "MIT",
+  "platforms": ["macOS"],
   "preferences": [
     {
       "name": "ipAddresses",
