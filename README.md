@@ -9,6 +9,7 @@ Control Elgato lights with auto-discovery or by IP address.
 - **Day and Night Presets**: Quickly switch between configurable day light and night light brightness and temperature settings.
 - **Set Exact Temperature**: Set a specific color temperature value (2900K-7000K) rather than just stepping warmer or cooler.
 - **Multi-Light Support**: All commands control every discovered or configured light simultaneously.
+- **AI Integration**: Control your lights through Raycast AI with natural language. Say things like "turn on my lights", "switch to night mode", or "set temperature to 4000K" (requires Raycast Pro).
 
 ## Setup
 
