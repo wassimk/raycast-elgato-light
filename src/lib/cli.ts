@@ -8,17 +8,17 @@ import * as tar from "tar";
 import { execFile } from "child_process";
 import sha256 from "sha256-file";
 
-const cliVersion = "0.3.2";
+const cliVersion = "1.1.0";
 const cliFileInfos = {
   x64: {
     arch: "x86_64",
     pkg: "elgato-light-Darwin-x86_64.tar.gz",
-    sha256: "2b1bd5867e57cd85dae38f7968526d4fd05ad30496bf5ddd7d201e438fc30297",
+    sha256: "bb77d9ad70cbf168f5e76ca7226d5098982d2e0514d3b8a2723cec00719ee4d1",
   },
   arm64: {
     arch: "aarch64",
     pkg: "elgato-light-Darwin-aarch64.tar.gz",
-    sha256: "d43c59e426681460f3c4bcae87d7df2c4090fec822697c8032ca28457cd17e48",
+    sha256: "f0d195cc0a18083bd20fc966dcaf0a133ee69aec372a30715204c456844f6b61",
   },
 };
 const cliFileInfo = os.arch() === "arm64" ? cliFileInfos.arm64 : cliFileInfos.x64;
