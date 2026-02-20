@@ -1,6 +1,6 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "elgato-light-controller",
+  "name": "elgato-light",
   "title": "Elgato Light",
   "description": "Control Elgato lights with auto-discovery or by IP address.",
   "icon": "extension-icon.png",
