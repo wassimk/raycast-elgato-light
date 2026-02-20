@@ -46,7 +46,7 @@
       "key": "defaultTemperature",
       "title": "Default Temperature",
       "description": "The default temperature to set the light to. Between 2900 and 7000",
-      "default": "3000",
+      "default": "5000",
       "placeholder": "2900-7000"
     },
     {
