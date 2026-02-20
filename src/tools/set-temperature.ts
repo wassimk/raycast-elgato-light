@@ -20,7 +20,7 @@ export default async function tool(input: Input): Promise<ToolResponse> {
   try {
     await executeTool(["temperature", String(temperature)]);
     return { success: true, message: `Temperature set to ${temperature}K` };
-  } catch (error) {
+  } catch {
     return { success: false, message: "Failed to set temperature" };
   }
 }
