@@ -35,7 +35,7 @@ If auto-discovery is unreliable, open the extension preferences and enter your l
 
 All preferences are optional with sensible defaults:
 
-<img src="media/raycast-elgato-light-settings.png" alt="Elgato Light extension preferences in Raycast Settings" width="750">
+<img src="media/raycast-elgato-light-settings.png" alt="Elgato Light extension preferences in Raycast Settings" width="500">
 
 - **IP Addresses**: Comma-separated list of light IPs (leave empty for auto-discovery)
 - **Brightness Increment Amount**: How much to change brightness per step (default: 5)
