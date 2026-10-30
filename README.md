@@ -21,10 +21,10 @@ If auto-discovery is unreliable, open the extension preferences and enter your l
 
 | Command | Description |
 |---------|-------------|
-| Turn on | Turn light(s) on to default brightness and temperature |
-| Turn off | Turn light(s) off |
-| Turn on Day Light | Turn light(s) on with day light settings |
-| Turn on Night Light | Turn light(s) on with night light settings |
+| Turn On | Turn light(s) on to default brightness and temperature |
+| Turn Off | Turn light(s) off |
+| Turn On Day Light | Turn light(s) on with day light settings |
+| Turn On Night Light | Turn light(s) on with night light settings |
 | Increase Brightness | Increase the brightness of light(s) |
 | Decrease Brightness | Decrease the brightness of light(s) |
 | Set Temperature | Set the color temperature to a specific value |
@@ -37,6 +37,6 @@ All preferences are optional with sensible defaults:
 
 - **IP Addresses**: Comma-separated list of light IPs (leave empty for auto-discovery)
 - **Brightness Increment Amount**: How much to change brightness per step (default: 5)
-- **Default Brightness / Temperature**: Settings for the Turn on command
-- **Day Light Brightness / Temperature**: Settings for the Turn on Day Light command
-- **Night Light Brightness / Temperature**: Settings for the Turn on Night Light command
+- **Default Brightness / Temperature**: Settings for the Turn On command
+- **Day Light Brightness / Temperature**: Settings for the Turn On Day Light command
+- **Night Light Brightness / Temperature**: Settings for the Turn On Night Light command
