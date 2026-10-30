@@ -2,6 +2,8 @@
 
 Control Elgato lights with auto-discovery or by IP address.
 
+<img src="media/raycast-elgato-light.png" alt="Raycast search for elgato showing the Elgato Light commands" width="750">
+
 ## ✨ Features
 
 - **Auto-Discovery**: Automatically finds Elgato lights on your network using Bonjour/mDNS. No configuration required.
