@@ -2,7 +2,7 @@
 
 Control Elgato lights with auto-discovery or by IP address.
 
-## Features
+## ✨ Features
 
 - **Auto-Discovery**: Automatically finds Elgato lights on your network using Bonjour/mDNS. No configuration required.
 - **IP Address Fallback**: If auto-discovery is unreliable on your network, set light IP addresses manually in extension preferences. Supports multiple lights via comma-separated IPs.
@@ -11,13 +11,13 @@ Control Elgato lights with auto-discovery or by IP address.
 - **Multi-Light Support**: All commands control every discovered or configured light simultaneously.
 - **AI Integration**: Control your lights through Raycast AI with natural language. Say things like "turn on my lights", "switch to night mode", or "set temperature to 4000K" (requires Raycast Pro).
 
-## Setup
+## 🛠️ Setup
 
 No setup is required for most users. The extension automatically discovers Elgato lights on your local network.
 
 If auto-discovery is unreliable, open the extension preferences and enter your light IP addresses as a comma-separated list (e.g., `192.168.0.25, 192.168.0.26`).
 
-## Commands
+## 💻 Commands
 
 | Command | Description |
 |---------|-------------|
@@ -31,7 +31,7 @@ If auto-discovery is unreliable, open the extension preferences and enter your l
 | Discover Lights | Discover lights on the network and cache them |
 | Clear Light Cache | Clear the cached light discovery data |
 
-## Preferences
+## ⚙️ Preferences
 
 All preferences are optional with sensible defaults:
 

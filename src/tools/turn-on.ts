@@ -8,7 +8,7 @@ export default async function tool(): Promise<ToolResponse> {
   try {
     await executeTool(["on", "--temperature", defaultTemperature(), "--brightness", defaultBrightness()]);
     return { success: true, message: "Lights turned on" };
-  } catch (error) {
+  } catch {
     return { success: false, message: "Failed to turn on lights" };
   }
 }

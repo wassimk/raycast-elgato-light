@@ -1,17 +1,6 @@
 import { getPreferenceValues } from "@raycast/api";
 
-type Preferences = {
-  ipAddresses: string;
-  defaultBrightness: string;
-  defaultTemperature: string;
-  brightnessChangeAmount: string;
-  dayLightBrightness: string;
-  dayLightTemperature: string;
-  nightLightBrightness: string;
-  nightLightTemperature: string;
-};
-
-function getPrefs(): Preferences {
+function getPrefs() {
   return getPreferenceValues<Preferences>();
 }
 

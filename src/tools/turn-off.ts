@@ -7,7 +7,7 @@ export default async function tool(): Promise<ToolResponse> {
   try {
     await executeTool(["off"]);
     return { success: true, message: "Lights turned off" };
-  } catch (error) {
+  } catch {
     return { success: false, message: "Failed to turn off lights" };
   }
 }

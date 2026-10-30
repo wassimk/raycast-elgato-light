@@ -8,7 +8,7 @@ export default async function tool(): Promise<ToolResponse> {
   try {
     await executeTool(["brightness", "--", `-${brightnessChangeAmount()}`]);
     return { success: true, message: `Brightness decreased by ${brightnessChangeAmount()}%` };
-  } catch (error) {
+  } catch {
     return { success: false, message: "Failed to decrease brightness" };
   }
 }
