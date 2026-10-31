@@ -213,7 +213,7 @@
   },
   "devDependencies": {
     "@raycast/eslint-config": "^2.0.0",
-    "@types/node": "^22.13.10",
+    "@types/node": "^26.6.5",
     "@types/react": "^19.0.10",
     "@types/sha256-file": "^1.0.3",
     "@types/tar": "^6.1.13",
