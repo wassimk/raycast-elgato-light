@@ -219,7 +219,7 @@
     "@types/tar": "^6.1.13",
     "eslint": "^9.0.0",
     "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
+    "typescript": "^7.0.2"
   },
   "scripts": {
     "build": "ray build -e dist",
